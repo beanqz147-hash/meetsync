@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule Meeting | MeetSync</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="brand">Meet<span>Sync</span></div><p class="sidebar-label">MAIN MENU</p>
+    <nav>
+      <a href="dashboard.html">⌂ &nbsp;Dashboard</a>
+      <a href="meetings.html">▣ &nbsp;My Meetings</a>
+      <a class="active" href="schedule.html">＋ &nbsp;Schedule Meeting</a>
+      <a href="notifications.html">● &nbsp;Notifications</a>
+      <a href="reports.html">▤ &nbsp;Reports</a>
+      <a href="register.html" id="adminNav">♙ &nbsp;Add User</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="topbar"><div><h1>Schedule a Meeting</h1><p>Enter the details for your video conference.</p></div></header>
+    <section class="panel form-panel">
+      <h2>Meeting Information</h2>
+      <form id="scheduleForm">
+        <div class="form-group"><label for="title">Meeting Title</label><input id="title" required placeholder="e.g. Project Planning Meeting"></div>
+        <div class="form-group"><label for="description">Description</label><textarea id="description" placeholder="Enter meeting details"></textarea></div>
+        <div class="form-group"><label for="date">Meeting Date</label><input type="date" id="date" required></div>
+        <div class="form-group"><label for="startTime">Start Time</label><input type="time" id="startTime" required></div>
+        <div class="form-group"><label for="endTime">End Time</label><input type="time" id="endTime" required></div>
+        <div class="form-group"><label for="platform">Meeting Platform</label>
+          <select id="platform" required><option value="">Select platform</option><option>Google Meet</option><option>Zoom</option><option>Microsoft Teams</option><option>Other</option></select>
+        </div>
+        <div class="form-group"><label for="meetingLink">Meeting Link</label><input type="url" id="meetingLink" placeholder="https://..."></div>
+        <div class="form-group"><label for="participants">Participant Emails</label><textarea id="participants" placeholder="Enter email addresses separated by commas"></textarea></div>
+        <p id="scheduleMessage" class="message"></p>
+        <button class="btn btn-primary" type="submit">Create Meeting</button>
+      </form>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script src="js/schedule.js"></script>
+</body>
+</html>

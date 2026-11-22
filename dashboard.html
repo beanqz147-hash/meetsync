@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeetSync | Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="brand">Meet<span>Sync</span></div>
+    <p class="sidebar-label">MAIN MENU</p>
+    <nav>
+      <a class="active" href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
+      <a href="meetings.html"><span class="nav-icon">▣</span>My Meetings</a>
+      <a href="schedule.html"><span class="nav-icon">＋</span>Schedule Meeting</a>
+      <a href="notifications.html"><span class="nav-icon">●</span>Notifications</a>
+      <a href="reports.html"><span class="nav-icon">▤</span>Reports</a>
+      <a href="register.html" id="adminNav"><span class="nav-icon">♙</span>Add User</a>
+    </nav>
+    <div class="sidebar-bottom">Video Conference Scheduling Management</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back. Here's what's happening with your meetings.</p>
+      </div>
+      <div class="user-chip"><span class="avatar" id="userAvatar">U</span><span id="userName">User</span></div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card"><div class="stat-top"><h3>Total Meetings</h3><span class="stat-icon">▣</span></div><div class="stat-number" id="totalMeetings">0</div></div>
+      <div class="stat-card"><div class="stat-top"><h3>Upcoming Meetings</h3><span class="stat-icon">◷</span></div><div class="stat-number" id="upcomingMeetings">0</div></div>
+      <div class="stat-card"><div class="stat-top"><h3>Completed Meetings</h3><span class="stat-icon">✓</span></div><div class="stat-number" id="completedMeetings">0</div></div>
+      <div class="stat-card"><div class="stat-top"><h3>Unread Notifications</h3><span class="stat-icon">●</span></div><div class="stat-number" id="unreadNotifications">0</div></div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="panel">
+        <h2>Meeting Overview</h2>
+        <div class="chart-container"><canvas id="meetingChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading"><h2>Upcoming Meetings</h2><a class="small" href="meetings.html">View all →</a></div>
+        <div class="table-responsive">
+          <table>
+            <thead><tr><th>Meeting</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+            <tbody id="recentMeetings"><tr><td colspan="4">No meetings scheduled.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><h2>Quick Actions</h2></div>
+      <div class="quick-actions">
+        <a href="schedule.html" class="btn btn-primary">＋ Schedule a Meeting</a>
+        <a href="meetings.html" class="btn btn-secondary">View My Meetings</a>
+        <a href="reports.html" class="btn btn-secondary">View Reports</a>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

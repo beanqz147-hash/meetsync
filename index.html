@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetSync | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+    <main class="auth-card">
+        <div class="auth-brand">
+            <div class="brand-icon">M</div>
+            <h1>Meet<span>Sync</span></h1>
+            <p>VIDEO CONFERENCE SCHEDULING MANAGEMENT</p>
+        </div>
+
+        <div class="auth-heading">
+            <h2>Welcome Back!</h2>
+            <p>Sign in to manage your meetings.</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password"
+                    placeholder="Enter your password" required>
+            </div>
+
+            <p id="loginMessage" class="message"></p>
+
+            <button type="submit" class="btn btn-primary btn-full">
+                Sign In
+            </button>
+        </form>
+
+        <p class="auth-footer">
+            Your account is provided by your system administrator.
+        </p>
+    </main>
+
+    <script>
+    (() => {
+        const USERS_KEY = "meetsync_users";
+        const SESSION_KEY = "meetsync_session";
+
+        let users = [];
+
+        try {
+            users = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
+        } catch (error) {
+            users = [];
+        }
+
+        if (!Array.isArray(users)) users = [];
+
+        const adminEmail = "admin@meetsync.local";
+
+        let admin = users.find(user =>
+            user.email?.toLowerCase() === adminEmail
+        );
+
+        if (!admin) {
+            users.push({
+                id: "admin-001",
+                name: "System Administrator",
+                email: adminEmail,
+                password: "Admin@123",
+                role: "admin"
+            });
+        } else {
+            admin.name = "System Administrator";
+            admin.password = "Admin@123";
+            admin.role = "admin";
+        }
+
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+
+        const form = document.getElementById("loginForm");
+        const message = document.getElementById("loginMessage");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email")
+                .value.trim().toLowerCase();
+
+            const password = document.getElementById("password").value;
+
+            const user = users.find(account =>
+                account.email?.toLowerCase() === email &&
+                account.password === password
+            );
+
+            if (!user) {
+                message.textContent = "Incorrect email or password.";
+                return;
+            }
+
+            localStorage.setItem(SESSION_KEY, JSON.stringify({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }));
+
+            window.location.href = "dashboard.html";
+        });
+    })();
+    </script>
+
+</body>
+</html>

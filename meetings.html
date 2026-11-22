@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Meetings | MeetSync</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="brand">Meet<span>Sync</span></div><p class="sidebar-label">MAIN MENU</p>
+    <nav>
+      <a href="dashboard.html">⌂ &nbsp;Dashboard</a>
+      <a class="active" href="meetings.html">▣ &nbsp;My Meetings</a>
+      <a href="schedule.html">＋ &nbsp;Schedule Meeting</a>
+      <a href="notifications.html">● &nbsp;Notifications</a>
+      <a href="reports.html">▤ &nbsp;Reports</a>
+      <a href="register.html" id="adminNav">♙ &nbsp;Add User</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="topbar">
+      <div><h1>My Meetings</h1><p>View, edit and manage your scheduled meetings.</p></div>
+      <a href="schedule.html" class="btn btn-primary">＋ New Meeting</a>
+    </header>
+    <div class="toolbar">
+      <input id="meetingSearch" type="search" placeholder="Search meetings...">
+      <select id="meetingFilter"><option value="all">All Meetings</option><option value="upcoming">Upcoming</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+    </div>
+    <section id="meetingsList" class="meetings-grid"></section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script src="js/meetings.js"></script>
+</body>
+</html>

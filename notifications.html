@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications | MeetSync</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="brand">Meet<span>Sync</span></div><p class="sidebar-label">MAIN MENU</p>
+    <nav>
+      <a href="dashboard.html">⌂ &nbsp;Dashboard</a>
+      <a href="meetings.html">▣ &nbsp;My Meetings</a>
+      <a href="schedule.html">＋ &nbsp;Schedule Meeting</a>
+      <a class="active" href="notifications.html">● &nbsp;Notifications</a>
+      <a href="reports.html">▤ &nbsp;Reports</a>
+      <a href="register.html" id="adminNav">♙ &nbsp;Add User</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="topbar">
+      <div><h1>Notifications</h1><p>Stay updated with meeting schedules and changes.</p></div>
+      <div class="quick-actions">
+        <button id="markAllRead" class="btn btn-secondary">Mark all as read</button>
+        <button id="clearNotifications" class="btn btn-danger">Clear all</button>
+      </div>
+    </header>
+    <section id="notificationsList" class="notification-list"></section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+<script src="js/notifications.js"></script>
+</body>
+</html>
